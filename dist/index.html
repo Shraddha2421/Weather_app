@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="output.css">
+  <title>Weather Forecast Application</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="16x16" href="../resources/favicon-16x16.png">
+</head>
+<body class="bg-gradient-to-r from-blue-100 via-blue-300 to-blue-500 min-h-screen flex items-center justify-center">
+
+  <!-- Weather App Container -->
+  <div id="weatherContainer" class="container mx-auto p-2 bg-[url('../resources/bg_image.jpg')] bg-cover rounded-lg shadow-lg flex flex-col items-center max-w-sm transition-all duration-500"> <!-- Small initial container with minimal padding -->
+
+    <!-- Left Section (Search, Current Location, Recent Cities) -->
+    <div class="w-auto bg-blue-50 p-4 rounded-lg shadow-inner m-3"> <!-- Reduced padding for left section -->
+      <h1 class="text-2xl font-extrabold text-center mb-4 text-blue-600">Weather App
+        <img src="../resources/weather.png" alt="Weather Icon" class="inline-block h-8 w-8 ml-1">
+      </h1>
+      <!-- Search Form -->
+      <div class="mb-4">
+        <input id="cityInput" type="text" placeholder="Enter city name" class="p-2 border border-blue-400 rounded w-full focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300 ease-in-out">
+        <button id="searchBtn" class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded mt-2 w-full transition duration-300 ease-in-out transform hover:scale-105">Search Weather</button>
+      </div>
+       <!-- Error Message -->
+      <div id="errorMessage" class="text-red-600 font-bold hidden mb-4 animate-bounce"></div>
+      
+      
+      <!-- Current Location Button -->
+      <button id="current-location-btn" class="bg-green-500 hover:bg-green-600 text-white p-2 rounded w-full transition duration-300 ease-in-out transform hover:scale-105">Use Current Location</button>
+      <p id="status-message" class="text-red-500 mt-2"></p> <!-- Placeholder for status messages -->
+
+      <!-- Recently Searched Cities Dropdown -->
+      <div id="recentCities" class="mt-4"></div>
+    </div>
+
+    <!-- Right Section (Weather Display and Forecast) -->
+    <div id="rightSection" class="hidden w-full md:w-2/3 m-3 bg-blue-50 p-6 rounded-lg shadow-inner"> <!-- Right section, hidden initially -->
+      
+      <!-- Display for Current Weather -->
+      <div id="currentWeather" class="hidden bg-gradient-to-l from-blue-100 via-blue-300 to-blue-500 p-6 rounded-lg shadow-md"> <!-- Added a container for the current weather -->
+        <h2 class="text-2xl font-bold text-blue-900 text-center">Current Weather in <span id="cityName"></span></h2>
+        
+        <div class="flex flex-col md:flex-row items-center justify-between mt-6 space-y-6 md:space-y-0"> <!-- Flex container for alignment -->
+          <!-- Left side: Weather details (temperature, humidity, wind) -->
+          <div class="flex-1 text-gray-900 space-y-4">
+            <h3 class="text-lg font-semibold">Temperature: <span id="temperature"></span>°C</h3>
+            <h3 class="text-lg font-semibold">Humidity: <span id="humidity"></span>%</h3>
+            <h3 class="text-lg font-semibold">Wind Speed: <span id="windSpeed"></span> km/h</h3>
+          </div>
+          
+          <!-- Right side: Weather icon and description -->
+          <div class="flex flex-col items-center justify-center space-y-2">
+            <img id="weatherIcon" src="" alt="Weather Icon" class="h-18 w-20">
+            <p id="weatherDescription" class="text-lg font-semibold capitalize text-gray-600 text-center"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Extended Forecast Section -->
+      <div id="forecast" class="hidden mt-8">
+        <h2 class="text-2xl font-bold text-blue-600 mb-5">Future Forecast</h2>
+        <div id="forecastCards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Forecast cards will be injected here -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
