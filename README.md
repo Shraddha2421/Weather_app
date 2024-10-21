@@ -19,9 +19,9 @@
 ## **Installation**
   To run the Weather App locally, follow these steps:
  1. Clone this repository:
-    git clone https://github.com/Shraddha2421/Weather_app.git
+  ``` git clone https://github.com/Shraddha2421/Weather_app.git
     Navigate into the project directory:
-    cd Weather_app
+  ``` cd Weather_app
  2. Open the index.html file in your browser to use the app.
 ### **Usage**
 - Enter a city name in the search box and click the "Search" button to get weather details.
